@@ -1,9 +1,9 @@
 ---
-name: "coding-workflow"
-description: "General-purpose coding workflow: decompose large tasks with dependencies, mine 2-month git history for context, maximize component reuse, and deliver complete test cases with a test report. Invoke for any non-trivial coding task."
+name: "coding-workflow-zh"
+description: "通用编码工作流：大任务拆解并标注依赖关系、参考近两个月 git 提交优化代码、最大化组件复用、输出完整测试用例与测试报告。适用于任何非平凡的编码任务。"
 ---
 
-# Coding Workflow
+# 编码工作流
 
 一套通用的编码工作流规范。适用于任何非平凡（多文件、多步骤）的软件工程任务——新增功能、修复 bug、重构、跨层改动等。目标是：可预测的任务拆解、贴合仓库风格、最少重复代码、可验证的交付。
 
