@@ -82,3 +82,21 @@ graph LR
   git worktree remove ../repo-feature-a
   ```
 - 测试失败先记录为 issue，再决定是否本轮修复。
+
+---
+
+## 定时触发（可选）
+
+本 skill 默认按需手动触发。如需每天自动运行，在 TRAE 的定时任务（Schedule）里配置，使用下面这段 trigger message 模板：
+
+```text
+使用 parallel-feature-workflow-zh skill 执行今日多 feature 并行开发循环：
+1. 从 GitHub 仓库 <owner/repo> 读取所有 open issue 作为今日待开发 feature；
+2. 为每个 feature 创建独立 git worktree 并派发子 agent 并行开发，各自生成验收标准并提 PR；
+3. 检查已合并的 PR，对已合并项派子 agent 测试；
+4. 将测试发现的 bug 以 issue 形式提交到 GitHub，形成闭环。
+```
+
+推荐 cron（每个工作日 09:00，按本地时区）：`0 9 * * 1-5`
+
+> 占位符 `<owner/repo>` 需替换为实际仓库；定时任务需指定时区，例如中国用户用 `Asia/Shanghai`。

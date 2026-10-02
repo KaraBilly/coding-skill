@@ -82,3 +82,21 @@ graph LR
   git worktree remove ../repo-feature-a
   ```
 - On test failure, record it as an issue first; decide whether to fix it in this round afterwards.
+
+---
+
+## Scheduled Trigger (optional)
+
+This skill triggers on demand by default. To run it automatically every day, configure a TRAE scheduled task with the following trigger message:
+
+```text
+Use the parallel-feature-workflow-en skill to run today's multi-feature development loop:
+1. Read all open issues from GitHub repo <owner/repo> as today's features to develop;
+2. Create an isolated git worktree per feature and dispatch a parallel sub-agent per feature, each generating acceptance criteria and opening a PR;
+3. Check merged PRs and dispatch sub-agents to test the merged ones;
+4. File bugs found during testing as GitHub issues to close the loop.
+```
+
+Recommended cron (weekdays 09:00, local time): `0 9 * * 1-5`
+
+> Replace the `<owner/repo>` placeholder with the actual repository. Specify a timezone for the scheduled task, e.g. `Asia/Shanghai` for users in China.
