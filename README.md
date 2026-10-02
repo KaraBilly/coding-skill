@@ -10,7 +10,19 @@ npx skills add https://github.com/KaraBilly/coding-skill
 
 # 只装某一个，例如：
 npx skills add https://github.com/KaraBilly/coding-skill --skill parallel-feature-workflow-zh
+
+# 只装中文版（需要该语言的每个 skill 都指定一次）
+npx skills add https://github.com/KaraBilly/coding-skill \
+  --skill coding-workflow-zh \
+  --skill parallel-feature-workflow-zh
+
+# 只装英文版
+npx skills add https://github.com/KaraBilly/coding-skill \
+  --skill coding-workflow-en \
+  --skill parallel-feature-workflow-en
 ```
+
+> 说明：`npx skills` CLI 没有 `--language` 之类的语言筛选参数，按语言安装需用 `--skill <name>` 逐个指定该语言下的所有 skill。新增 skill 后记得同步更新上述命令。
 
 ## Skill 清单
 
